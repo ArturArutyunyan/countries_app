@@ -1,0 +1,49 @@
+.content {
+  margin: 20px;
+  padding: 20px 30px;
+  box-shadow: 0 0 8px 0 rgb(200, 200, 233) inset;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+@-webkit-keyframes pulsate {
+  50% { color: rgb(200, 200, 233); text-shadow: 0 -1px rgb(200, 200, 233), 0 0 5px #ffd, 0 0 8px #fff; }
+}
+
+@keyframes pulsate {
+  50% { color: rgb(200, 200, 233); text-shadow: 0 -1px rgb(200, 200, 233), 0 0 5px #ffd, 0 0 8px #fff; }
+}
+
+.notice {
+  margin: auto;
+  font-size: 35px;
+  color: rgb(168, 168, 231);
+  text-shadow: 0 -1px rgba(231, 6, 6, 0.1);
+  -webkit-animation: pulsate 1.2s linear infinite;
+  animation: pulsate 1.5s linear infinite;
+}
+
+.title {
+  width: 100%;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #490b52;
+  text-shadow: 0 0 2px #851494;
+}
+
+.title>* {
+  box-shadow: 0 0 4px 0 #851494 inset;
+  padding: 10px;
+  flex: 1 1 100px;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    font-size: 12px;
+  }
+}

@@ -19,7 +19,7 @@ function Header() {
 
   return (
     <div className={styles.headerContent}>
-      <Link to="/details/20">
+      <Link to="/">
         <button type="button" onClick={showCountries} name="countries" className={styles.button}>Countries</button>
       </Link>
 
