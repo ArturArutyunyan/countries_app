@@ -13,14 +13,11 @@ function Header() {
     localStorage.removeItem('token');
     dispatch(logout());
   }
-  const showCountries = () => {
-    console.log('showCountries');
-  }
-
+ 
   return (
     <div className={styles.headerContent}>
       <Link to="/">
-        <button type="button" onClick={showCountries} name="countries" className={styles.button}>Countries</button>
+        <button type="button" name="countries" className={styles.button}>Countries</button>
       </Link>
 
       <Link to="/login">

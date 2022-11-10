@@ -15,7 +15,7 @@ function Country({country, changePopupStatus}) {
     <div className={styles.content}>
         <div>{country.cca2}</div>
         <div className={styles.countryName} onClick={() => handlePopup(country.ccn3)}>{country.name.common}</div>
-        <div>{country.capital[0]}</div>
+        <div>{country.capital}</div>
         <div className={styles.eyeButton}>
           <Link to={`/details/${country.ccn3}`} className={styles.link}>
             <img className={styles.img} alt="eye-button" src={eyeButton} />

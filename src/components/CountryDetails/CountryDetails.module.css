@@ -1,0 +1,38 @@
+.content {
+  margin: 20px auto;
+  padding: 30px 30px;
+  width: 65%;
+  box-shadow: 0 0 8px 0 rgb(138, 177, 128) inset;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.field>* {
+  box-shadow: 0 0 4px 0 #851494 inset;
+  padding: 13px 7px;
+  flex: 1 1 800px;
+}
+
+.img {
+  height: 14px;
+  width: 25px;
+}
+
+@media only screen and (max-width: 600px) {
+  .content {
+    width: 95%;
+    padding: 10px;
+    font-size: 12px;
+  }
+}

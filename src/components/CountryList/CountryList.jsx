@@ -32,7 +32,7 @@ function CountryList() {
       </div>
 
       {countries.length 
-        ? countries.slice(0,10).map((country) => ( 
+        ? countries.slice(90,99).map((country) => ( 
           <Country
             key={country.ccn3}
             country={country}

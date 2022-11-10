@@ -17,3 +17,8 @@ export const togglePopupStatus = (payload) => ({
   type: actionTypes.TOGGLE_POPUP_STATUS,
   popupStatus: payload,
 });
+
+export const getCountryByAlphacode = (payload) => ({
+  type: actionTypes.GET_COUNTRY_BY_ALPHACODE_REQ,
+  alphaCode: payload,
+});

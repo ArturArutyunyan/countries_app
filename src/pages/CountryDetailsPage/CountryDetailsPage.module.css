@@ -1,4 +1,11 @@
 .content {
-  height: 500px;
-  background-color: blueviolet;
+  height: 100vh;
+}
+
+.title {
+  font-size: 35px;
+  margin: 40px 0;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 0 5px rgb(130, 160, 123);
 }
