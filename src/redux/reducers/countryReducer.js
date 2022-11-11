@@ -4,6 +4,7 @@ import {
   TOGGLE_POPUP_STATUS,
   GET_COUNTRY_BY_ALPHACODE_REC,
   GET_COUNTRY_BY_ALPHACODE_REJ,
+  CHANGE_CURRENT_PAGE,
 } from '../constants';
 
 const initialState = {
@@ -11,6 +12,7 @@ const initialState = {
   country: [],
   popupStatus: false,
   error: '',
+  currentPage: 1,
 };
 
 export default function countryReducer(state = initialState, action = {}) {
@@ -39,6 +41,13 @@ export default function countryReducer(state = initialState, action = {}) {
         ...state,
         popupStatus: action.popupStatus
       };
+
+    case CHANGE_CURRENT_PAGE:
+      return {
+        ...state,
+        currentPage: action.currentPage,
+      };
+      
     default: return state;
   }
 }

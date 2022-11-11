@@ -1,0 +1,19 @@
+.button, .selected {
+  position: relative;
+  cursor: pointer;
+  border: none;
+  font-size: 16px;
+  margin-right: 12px;
+  font-weight: 600;
+  background: none;
+  color: rgba(168, 133, 196, 0.7);
+}
+
+.selected {
+  color: rgba(157, 83, 218, 0.7);
+}
+
+.pagination {
+  margin: 0 auto;
+  text-align: center;
+}

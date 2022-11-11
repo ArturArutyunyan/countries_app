@@ -22,3 +22,8 @@ export const getCountryByAlphacode = (payload) => ({
   type: actionTypes.GET_COUNTRY_BY_ALPHACODE_REQ,
   alphaCode: payload,
 });
+
+export const changeCurrentPage = (payload) => ({
+  type: actionTypes.CHANGE_CURRENT_PAGE,
+  currentPage: payload,
+});
