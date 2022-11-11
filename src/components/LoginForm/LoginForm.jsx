@@ -20,7 +20,7 @@ function LoginForm() {
       {error && <p className={styles.error}>{error}</p>}
       <Formik
         initialValues={{
-          email: 'peter@klaven',
+          email: '',
           password: '',
           rememberMe: false,
         }}
@@ -28,9 +28,12 @@ function LoginForm() {
         validateOnBlur
         onSubmit={handleSubmit}
         >
-        {({ errors, touched }) => (
+        {({ errors, touched, setFieldValue }) => (
           <Form className={styles.form}>
-            <Field name="email" placeholder="Enter@your.email" type="email" className={styles.field} />
+            <Field name="email" placeholder="Enter@your.email" type="email" className={styles.field} 
+                   onChange={(e)=>{ const value = e.target.value || "";
+                                    setFieldValue('email', value.toLowerCase()); }} 
+            />
             { errors.email && touched.email && <div className={styles.error}>{errors.email}</div> }
 
             <Field name="password" placeholder="******" type="password" className={styles.field} autoComplete="on" />

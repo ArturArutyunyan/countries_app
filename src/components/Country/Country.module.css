@@ -23,6 +23,11 @@
   cursor: pointer;
 }
 
+.countryName:hover {
+  text-shadow: 0 0 3px #e5a0ee;
+  font-size: 15px;
+}
+
 @media only screen and (max-width: 600px) {
   .content {
     font-size: 12px;

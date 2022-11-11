@@ -1,3 +1,8 @@
+# Node version for project
+v14.19.2 (npm v6.14.17)
+
+# Before starting the project create .env file using .env.template
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

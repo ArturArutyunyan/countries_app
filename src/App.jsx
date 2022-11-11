@@ -21,6 +21,7 @@ function App() {
                  element={isAuth ? <Navigate to="/" /> : <LoginPage />} />
           <Route path="/details/:alphaCode" 
                  element={isAuth ? <CountryDetailsPage /> : <Navigate to="/login" />}/>
+          <Route path={'*'} element={<Navigate to="/login" />} /> `
         </Routes>
       </BrowserRouter>
     </div>
