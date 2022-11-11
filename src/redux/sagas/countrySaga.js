@@ -1,5 +1,5 @@
-import { put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
+import { put, takeLatest } from 'redux-saga/effects';
 
 import * as actionTypes from '../constants';
 
@@ -12,7 +12,7 @@ function* getAllCountriesWorker() {
   }
 }
 
-function* getCountryByAlphacodeWorker({alphaCode}) {
+function* getCountryByAlphacodeWorker({ alphaCode }) {
   try {
     const { data } = yield axios.get(`${process.env.REACT_APP_GET_COUNTRY_URL}${alphaCode}`);
     yield put({ type: actionTypes.GET_COUNTRY_BY_ALPHACODE_REC, payload: data });
@@ -22,6 +22,6 @@ function* getCountryByAlphacodeWorker({alphaCode}) {
 }
 
 export default function* countrySagaWatcher() {
-  yield takeEvery(actionTypes.GET_ALL_COUNTRIES_REQUESTED, getAllCountriesWorker);
-  yield takeEvery(actionTypes.GET_COUNTRY_BY_ALPHACODE_REQ, getCountryByAlphacodeWorker);
+  yield takeLatest(actionTypes.GET_ALL_COUNTRIES_REQUESTED, getAllCountriesWorker);
+  yield takeLatest(actionTypes.GET_COUNTRY_BY_ALPHACODE_REQ, getCountryByAlphacodeWorker);
 }

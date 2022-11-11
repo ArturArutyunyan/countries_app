@@ -14,13 +14,13 @@ export default function userReducer(state = initialState, action = {}) {
     case AUTH_USER_RECEIVED:
       return {
         ...state,
-        isAuth: true
+        isAuth: true,
       };
 
     case AUTH_USER_REJECTED:
       return {
         ...state,
-        error: action.error
+        error: action.error,
       };
 
     case LOGOUT_REQUESTED:

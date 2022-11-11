@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { changeCurrentPage } from '../../redux/actions'
+import { changeCurrentPage } from '../../redux/actions';
 
 import styles from './Paginator.module.css';
 

@@ -5,7 +5,7 @@ import countryReducer from './countryReducer';
 
 const rootReducer = combineReducers({
   userReducer,
-  countryReducer
+  countryReducer,
 });
 
 export default rootReducer;

@@ -8,4 +8,3 @@ const paginate = (countries, currentPage) => {
 };
 
 export default paginate;
-

@@ -5,12 +5,12 @@ import { togglePopupStatus } from '../../redux/actions';
 
 import styles from './Popup.module.css';
 
-function Popup({country}) {
+function Popup({ country }) {
   const dispatch = useDispatch();
 
   const closePopup = () => {
     dispatch(togglePopupStatus(false));
-  }
+  };
 
   return (
     <div className={styles.content}>

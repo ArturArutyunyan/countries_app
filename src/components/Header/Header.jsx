@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
@@ -12,8 +12,8 @@ function Header() {
   const logoutForm = () => {
     localStorage.removeItem('token');
     dispatch(logout());
-  }
- 
+  };
+
   return (
     <div className={styles.headerContent}>
       <Link to="/">
@@ -27,4 +27,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default memo(Header);

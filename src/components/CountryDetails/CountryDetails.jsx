@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './CountryDetails.module.css';
 
-function CountryDetails({country}) {
+function CountryDetails({ country }) {
   const languages = Object.values(country[0].languages).join(' | ');
   const currencies = Object.entries(country[0].currencies);
 
@@ -40,7 +40,6 @@ function CountryDetails({country}) {
           <img className={styles.img} alt="Logo" src={country[0].flags.svg} />
         </div>
       </div>
-      
     </div>
   );
 }

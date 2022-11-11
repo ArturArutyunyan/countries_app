@@ -1,5 +1,6 @@
 # Node version for project
 v14.19.2 (npm v6.14.17)
+### `nvm use 14.19.2`
 
 # Before starting the project create .env file using .env.template
 

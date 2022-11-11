@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getAllCountries, togglePopupStatus } from '../../redux/actions';
 import Country from '../Country/Country';
-import Popup from '../Popup/Popup';
+import Loader from '../Loader/Loader';
 import Paginator from '../Paginator/Paginator';
-import paginate from '../../helpers/paginate'
+import Popup from '../Popup/Popup';
+
+import { getAllCountries, togglePopupStatus } from '../../redux/actions';
+import paginate from '../../helpers/paginate';
 
 import styles from './CountryList.module.css';
 
@@ -13,19 +15,28 @@ function CountryList() {
   const dispatch = useDispatch();
   const [countryCode, setCountryCode] = useState();
 
-  const { countries, popupStatus, currentPage } = useSelector((state) => state.countryReducer);
+  const {
+    countries, popupStatus, currentPage, isLoading,
+  } = useSelector((state) => state.countryReducer);
 
-
-  const changePopupStatus = (countryCode) => {
+  const changePopupStatus = (alphaCode) => {
     dispatch(togglePopupStatus(!popupStatus));
-    setCountryCode(countryCode);
-  }
- 
+    setCountryCode(alphaCode);
+  };
+
   useEffect(() => {
     dispatch(getAllCountries());
   }, [dispatch]);
 
   const selectedPosts = paginate(countries, currentPage);
+
+  if (isLoading) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.content}>
@@ -33,25 +44,28 @@ function CountryList() {
         <div>CCA2</div>
         <div>Country</div>
         <div>Capital</div>
-        <div>More</div>  
+        <div>More</div>
       </div>
 
       <div>
-      {countries.length 
-        ? selectedPosts.map((country) => ( 
-          <Country
-            key={country.ccn3}
-            country={country}
-            changePopupStatus={changePopupStatus}
-          /> )) 
-        : <p className={styles.notice}>There is no countries in your list!</p> }
+        { countries.length
+          ? selectedPosts.map((country) => (
+            <Country
+              key={country.ccn3}
+              country={country}
+              changePopupStatus={changePopupStatus}
+            />
+          ))
+          : <p className={styles.notice}>There is no countries in your list!</p> }
       </div>
 
-      <div styles={styles.paginator}>
+      <div className={styles.paginator}>
         <Paginator countries={countries} />
       </div>
 
-      {popupStatus && <Popup country={countries.filter((country) => country.ccn3 === countryCode)[0]} /> }      
+      { popupStatus
+      && <Popup country={countries.filter((country) => country.ccn3 === countryCode)[0]} />}
+
     </div>
   );
 }

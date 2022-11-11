@@ -23,7 +23,12 @@
   cursor: pointer;
 }
 
-.countryName:hover {
+.countryButton {
+  background: none;
+  border: none;
+}
+
+.countryButton:hover {
   text-shadow: 0 0 3px #e5a0ee;
   font-size: 15px;
 }

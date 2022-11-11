@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Header from '../../components/Header/Header';
+import Loader from '../../components/Loader/Loader';
 import CountryDetails from '../../components/CountryDetails/CountryDetails';
+
 import { getCountryByAlphacode } from '../../redux/actions';
 
 import styles from './CountryDetailsPage.module.css';
@@ -11,11 +13,19 @@ import styles from './CountryDetailsPage.module.css';
 function CountryDetailsPage() {
   const dispatch = useDispatch();
   const { alphaCode } = useParams();
-  const { country } = useSelector((state) => state.countryReducer);
+  const { country, isLoading } = useSelector((state) => state.countryReducer);
 
   useEffect(() => {
     dispatch(getCountryByAlphacode(alphaCode));
   }, [dispatch, alphaCode]);
+
+  if (isLoading) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
 
   return (
     <div className={styles.content}>
@@ -27,4 +37,3 @@ function CountryDetailsPage() {
 }
 
 export default CountryDetailsPage;
-
