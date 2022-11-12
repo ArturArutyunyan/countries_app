@@ -1,12 +1,13 @@
 import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { shape, arrayOf } from 'prop-types';
 
+import { PAGESIZE } from '../../redux/constants';
 import { changeCurrentPage } from '../../redux/actions';
 
-import styles from './Paginator.module.css';
+import styles from './Pagination.module.css';
 
-const PAGESIZE = 8;
-function Paginator({ countries }) {
+function Pagination({ countries }) {
   const currentPage = useSelector((state) => state.countryReducer.currentPage);
   const dispatch = useDispatch();
 
@@ -32,4 +33,8 @@ function Paginator({ countries }) {
   );
 }
 
-export default Paginator;
+Pagination.propTypes = {
+  countries: arrayOf(shape({})).isRequired,
+};
+
+export default Pagination;

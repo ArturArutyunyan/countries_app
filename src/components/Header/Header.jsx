@@ -10,7 +10,6 @@ function Header() {
   const dispatch = useDispatch();
 
   const logoutForm = () => {
-    localStorage.removeItem('token');
     dispatch(logout());
   };
 

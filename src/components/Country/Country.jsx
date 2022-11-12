@@ -1,12 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { shape, string, func } from 'prop-types';
+import {
+  shape, string, func, arrayOf,
+} from 'prop-types';
 
 import eyeButton from '../../assets/images/eye-button.png';
 
 import styles from './Country.module.css';
 
-function Country({ country: { cca2, ccn3, capital, name: { common } }, changePopupStatus }) {
+function Country({
+  country: {
+    cca2, ccn3, capital, name: { common },
+  }, changePopupStatus,
+}) {
   const handlePopup = (countryCode) => {
     changePopupStatus(countryCode);
   };
@@ -31,7 +37,7 @@ Country.propTypes = {
   country: shape({
     cca2: string,
     ccn3: string,
-    capital: string,
+    capital: arrayOf(string),
   }).isRequired,
   changePopupStatus: func.isRequired,
 };

@@ -51,10 +51,10 @@ function LoginForm() {
             { errors.password && touched.password
             && <div className={styles.error}>{errors.password}</div> }
 
-            <label>
+            <span>
               <Field type="checkbox" name="rememberMe" />
               &nbsp; Remember me
-            </label>
+            </span>
 
             <div><button type="submit" className={styles.button}>Sign In</button></div>
           </Form>

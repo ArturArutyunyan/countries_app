@@ -1,4 +1,5 @@
 import React from 'react';
+import { shape, string, arrayOf } from 'prop-types';
 
 import styles from './CountryDetails.module.css';
 
@@ -21,11 +22,7 @@ function CountryDetails({ country }) {
       <div className={styles.field}>
         <h4>Currencies</h4>
         <div>
-          {
-            currencies.map((currency) => (
-              <p>{currency[1].name} - {currency[1].symbol}</p>
-            ))
-          }
+          {`${currencies[0][1].name} - ${currencies[0][1].symbol}`}
         </div>
       </div>
 
@@ -43,5 +40,13 @@ function CountryDetails({ country }) {
     </div>
   );
 }
+
+CountryDetails.propTypes = {
+  country: arrayOf(shape({
+    cca2: string,
+    ccn3: string,
+    capital: arrayOf(string),
+  })).isRequired,
+};
 
 export default CountryDetails;

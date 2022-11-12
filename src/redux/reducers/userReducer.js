@@ -1,7 +1,7 @@
 import {
   AUTH_USER_RECEIVED,
   AUTH_USER_REJECTED,
-  LOGOUT_REQUESTED,
+  LOGOUT_RECEIVED,
 } from '../constants';
 
 const initialState = {
@@ -23,7 +23,7 @@ export default function userReducer(state = initialState, action = {}) {
         error: action.error,
       };
 
-    case LOGOUT_REQUESTED:
+    case LOGOUT_RECEIVED:
       return {
         ...state,
         isAuth: false,

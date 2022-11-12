@@ -15,6 +15,12 @@ function* loginUserWorker({ user }) {
   }
 }
 
+function* logoutUserWorker() {
+  localStorage.removeItem('token');
+  yield put({ type: actionTypes.LOGOUT_RECEIVED });
+}
+
 export default function* userSagaWatcher() {
   yield takeLatest(actionTypes.AUTH_USER_REQUESTED, loginUserWorker);
+  yield takeLatest(actionTypes.LOGOUT_REQUESTED, logoutUserWorker);
 }

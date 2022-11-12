@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { shape, string, arrayOf } from 'prop-types';
 
 import { togglePopupStatus } from '../../redux/actions';
 
@@ -25,9 +26,17 @@ function Popup({ country }) {
 
       </div>
 
-      <button onClick={closePopup}>X</button>
+      <button type="button" onClick={closePopup}>X</button>
     </div>
   );
 }
+
+Popup.propTypes = {
+  country: shape({
+    cca2: string,
+    ccn3: string,
+    capital: arrayOf(string),
+  }).isRequired,
+};
 
 export default Popup;

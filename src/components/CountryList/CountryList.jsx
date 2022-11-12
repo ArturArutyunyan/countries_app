@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Country from '../Country/Country';
 import Loader from '../Loader/Loader';
-import Paginator from '../Paginator/Paginator';
+import Pagination from '../Pagination/Pagination';
 import Popup from '../Popup/Popup';
 
 import { getAllCountries, togglePopupStatus } from '../../redux/actions';
@@ -60,7 +60,7 @@ function CountryList() {
       </div>
 
       <div className={styles.paginator}>
-        <Paginator countries={countries} />
+        <Pagination countries={countries} />
       </div>
 
       { popupStatus
