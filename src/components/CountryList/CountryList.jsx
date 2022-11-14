@@ -19,6 +19,7 @@ import styles from './CountryList.module.css';
 function CountryList() {
   const dispatch = useDispatch();
   const [countryCode, setCountryCode] = useState();
+  const [selectedCountry, setSelectedCountry] = useState(null);
 
   const {
     countries, popupStatus, currentPage, isLoading,
@@ -26,10 +27,11 @@ function CountryList() {
 
   const handleCountryClick = useCallback(
     (alphaCode) => {
+      setSelectedCountry(countries.find(({ ccn3 }) => ccn3 === countryCode));
       dispatch(togglePopupStatusAction(!popupStatus));
       setCountryCode(alphaCode);
     },
-    [popupStatus, dispatch],
+    [popupStatus, dispatch, countries, setSelectedCountry, countryCode],
   );
 
   useEffect(() => {
@@ -70,7 +72,7 @@ function CountryList() {
       <Pagination countries={countries} />
 
       {popupStatus
-        && <Popup country={countries.filter((country) => country.ccn3 === countryCode)[0]} />}
+        && <Popup country={selectedCountry} />}
     </div>
   );
 }
