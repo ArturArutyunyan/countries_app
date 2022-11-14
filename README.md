@@ -1,6 +1,8 @@
-# Node version for project
-v14.19.2 (npm v6.14.17)
-### `nvm use 14.19.2`
+## run the app
+`docker-compose up`
+
+Disclaimer: current docker-compose file suppose to be used only for dev or demo mode.
+For production the application should be built as static and distributed by CDN.
 
 # Before starting the project create .env file using .env.template
 

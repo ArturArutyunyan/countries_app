@@ -1,0 +1,26 @@
+version: '3' 
+services:
+  app:
+    container_name: react_container
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: app:react
+    working_dir: /countries-app
+    volumes:
+      - ./:/countries-app
+      - node_modules:/countries-app/node_modules 
+    ports:
+      - 3000:3000
+    environment:
+      NODE_ENV: development
+    command: npm start
+    restart: on-failure
+    networks:
+      - webnet
+    dns:
+      - 8.8.8.8
+networks:
+  webnet:
+volumes:
+  node_modules:
