@@ -18,9 +18,9 @@ function* getAllCountriesWorker() {
   }
 }
 
-function* getCountryByAlphacodeWorker({ alphaCode }) {
+function* getCountryByAlphacodeWorker({ payload }) {
   try {
-    const { data } = yield axios.get(`${process.env.REACT_APP_GET_COUNTRY_URL}${alphaCode}`);
+    const { data } = yield axios.get(`${process.env.REACT_APP_GET_COUNTRY_URL}${payload}`);
     yield put(getCountryByAlphacodeSuccessAction(data));
   } catch (error) {
     yield put(getCountryByAlphacodeFailAction());

@@ -9,7 +9,6 @@ services:
     working_dir: /countries-app
     volumes:
       - ./:/countries-app
-      - node_modules:/countries-app/node_modules 
     ports:
       - 3000:3000
     environment:
@@ -22,5 +21,3 @@ services:
       - 8.8.8.8
 networks:
   webnet:
-volumes:
-  node_modules:

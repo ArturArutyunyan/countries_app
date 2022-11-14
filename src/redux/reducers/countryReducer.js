@@ -52,13 +52,13 @@ export default function countryReducer(state = initialState, action = {}) {
     case TOGGLE_POPUP_STATUS:
       return {
         ...state,
-        popupStatus: action.popupStatus,
+        popupStatus: action.payload,
       };
 
     case CHANGE_CURRENT_PAGE:
       return {
         ...state,
-        currentPage: action.currentPage,
+        currentPage: action.payload,
       };
     default: return state;
   }

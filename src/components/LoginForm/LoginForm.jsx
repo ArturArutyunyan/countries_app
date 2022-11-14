@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 
 import validationLoginScheme from '../../helpers/validationLoginScheme';
-import { loginAction } from '../../redux/actions/auth-actions';
+import { loginAction } from '../../redux/actions';
 
 import styles from './LoginForm.module.css';
 
