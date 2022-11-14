@@ -6,7 +6,7 @@ import Header from '../../components/Header/Header';
 import Loader from '../../components/Loader/Loader';
 import CountryDetails from '../../components/CountryDetails/CountryDetails';
 
-import { getCountryByAlphacode } from '../../redux/actions';
+import { getCountryByAlphacodeAction } from '../../redux/actions';
 
 import styles from './CountryDetailsPage.module.css';
 
@@ -16,7 +16,7 @@ function CountryDetailsPage() {
   const { country, isLoading } = useSelector((state) => state.countryReducer);
 
   useEffect(() => {
-    dispatch(getCountryByAlphacode(alphaCode));
+    dispatch(getCountryByAlphacodeAction(alphaCode));
   }, [dispatch, alphaCode]);
 
   if (isLoading) {

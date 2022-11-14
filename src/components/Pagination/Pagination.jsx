@@ -2,19 +2,19 @@ import React, { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { shape, arrayOf } from 'prop-types';
 
-import { PAGESIZE } from '../../redux/constants';
-import { changeCurrentPage } from '../../redux/actions';
+import { changeCurrentPageAction } from '../../redux/actions';
 
 import styles from './Pagination.module.css';
 
 function Pagination({ countries }) {
+  const PAGESIZE = 8;
   const currentPage = useSelector((state) => state.countryReducer.currentPage);
   const dispatch = useDispatch();
 
   const pagesCount = useMemo(() => Math.ceil(countries.length / PAGESIZE), [countries]);
 
   const handleButton = (event) => {
-    dispatch(changeCurrentPage(Number(event.target.textContent)));
+    dispatch(changeCurrentPageAction(Number(event.target.textContent)));
   };
 
   return (

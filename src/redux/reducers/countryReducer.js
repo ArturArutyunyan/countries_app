@@ -7,14 +7,14 @@ import {
   GET_COUNTRY_BY_ALPHACODE_REJ,
   TOGGLE_POPUP_STATUS,
   CHANGE_CURRENT_PAGE,
-} from '../constants';
+} from '../common';
 
 const initialState = {
   countries: [],
   country: [],
-  popupStatus: false,
   isLoading: false,
   error: '',
+  popupStatus: false,
   currentPage: 1,
 };
 

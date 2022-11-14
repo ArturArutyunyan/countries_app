@@ -2,7 +2,7 @@ import {
   AUTH_USER_RECEIVED,
   AUTH_USER_REJECTED,
   LOGOUT_RECEIVED,
-} from '../constants';
+} from '../common';
 
 const initialState = {
   isAuth: Boolean(localStorage.getItem('token')),

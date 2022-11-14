@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import { logout } from '../../redux/actions';
+import { logoutAction } from '../../redux/actions';
 
 import styles from './Header.module.css';
 
@@ -10,7 +10,7 @@ function Header() {
   const dispatch = useDispatch();
 
   const logoutForm = () => {
-    dispatch(logout());
+    dispatch(logoutAction());
   };
 
   return (

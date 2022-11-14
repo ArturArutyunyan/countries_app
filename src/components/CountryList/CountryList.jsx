@@ -6,7 +6,7 @@ import Loader from '../Loader/Loader';
 import Pagination from '../Pagination/Pagination';
 import Popup from '../Popup/Popup';
 
-import { getAllCountries, togglePopupStatus } from '../../redux/actions';
+import { getAllCountriesAction, togglePopupStatusAction } from '../../redux/actions';
 import paginate from '../../helpers/paginate';
 
 import styles from './CountryList.module.css';
@@ -20,12 +20,12 @@ function CountryList() {
   } = useSelector((state) => state.countryReducer);
 
   const changePopupStatus = (alphaCode) => {
-    dispatch(togglePopupStatus(!popupStatus));
+    dispatch(togglePopupStatusAction(!popupStatus));
     setCountryCode(alphaCode);
   };
 
   useEffect(() => {
-    dispatch(getAllCountries());
+    dispatch(getAllCountriesAction());
   }, [dispatch]);
 
   const selectedPosts = paginate(countries, currentPage);

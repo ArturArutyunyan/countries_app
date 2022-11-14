@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { shape, string, arrayOf } from 'prop-types';
 
-import { togglePopupStatus } from '../../redux/actions';
+import { togglePopupStatusAction } from '../../redux/actions';
 
 import styles from './Popup.module.css';
 
@@ -10,7 +10,7 @@ function Popup({ country }) {
   const dispatch = useDispatch();
 
   const closePopup = () => {
-    dispatch(togglePopupStatus(false));
+    dispatch(togglePopupStatusAction(false));
   };
 
   return (

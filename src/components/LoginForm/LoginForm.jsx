@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Formik, Field, Form } from 'formik';
 
 import validationLoginScheme from '../../helpers/validationLoginScheme';
-import { login } from '../../redux/actions';
+import { loginAction } from '../../redux/actions/auth-actions';
 
 import styles from './LoginForm.module.css';
 
@@ -12,7 +12,7 @@ function LoginForm() {
   const { error } = useSelector((state) => state.userReducer);
 
   const handleSubmit = (event) => {
-    dispatch(login(event));
+    dispatch(loginAction(event));
   };
   return (
     <div className={styles.content}>

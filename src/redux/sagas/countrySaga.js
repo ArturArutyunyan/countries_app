@@ -1,27 +1,33 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-import * as actionTypes from '../constants';
+import { GET_ALL_COUNTRIES_REQUESTED, GET_COUNTRY_BY_ALPHACODE_REQ } from '../common';
+import {
+  getAllCountriesSuccessAction,
+  getAllCountriesFailAction,
+  getCountryByAlphacodeSuccessAction,
+  getCountryByAlphacodeFailAction,
+} from '../actions';
 
 function* getAllCountriesWorker() {
   try {
     const { data } = yield axios.get(process.env.REACT_APP_GET_COUNTRY_LIST_URL);
-    yield put({ type: actionTypes.GET_ALL_COUNTRIES_RECEIVED, payload: data });
+    yield put(getAllCountriesSuccessAction(data));
   } catch (error) {
-    yield put({ type: actionTypes.GET_ALL_COUNTRIES_REJECTED, error: error.message });
+    yield put(getAllCountriesFailAction());
   }
 }
 
 function* getCountryByAlphacodeWorker({ alphaCode }) {
   try {
     const { data } = yield axios.get(`${process.env.REACT_APP_GET_COUNTRY_URL}${alphaCode}`);
-    yield put({ type: actionTypes.GET_COUNTRY_BY_ALPHACODE_REC, payload: data });
+    yield put(getCountryByAlphacodeSuccessAction(data));
   } catch (error) {
-    yield put({ type: actionTypes.GET_COUNTRY_BY_ALPHACODE_REJ, error: error.message });
+    yield put(getCountryByAlphacodeFailAction());
   }
 }
 
 export default function* countrySagaWatcher() {
-  yield takeLatest(actionTypes.GET_ALL_COUNTRIES_REQUESTED, getAllCountriesWorker);
-  yield takeLatest(actionTypes.GET_COUNTRY_BY_ALPHACODE_REQ, getCountryByAlphacodeWorker);
+  yield takeLatest(GET_ALL_COUNTRIES_REQUESTED, getAllCountriesWorker);
+  yield takeLatest(GET_COUNTRY_BY_ALPHACODE_REQ, getCountryByAlphacodeWorker);
 }
