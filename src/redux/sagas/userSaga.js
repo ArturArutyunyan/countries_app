@@ -12,7 +12,7 @@ function* loginUserWorker({ payload }) {
     if (payload.rememberMe) localStorage.setItem('token', data.token);
     yield put(loginSuccessAction());
   } catch (error) {
-    yield put(loginFailAction());
+    yield put(loginFailAction(error));
   }
 }
 

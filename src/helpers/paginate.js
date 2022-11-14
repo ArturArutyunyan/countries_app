@@ -1,7 +1,8 @@
+import paginationConstants from '../constants/pagination';
+
 const paginate = (countries, currentPage) => {
-  const PAGESIZE = 8;
-  const lastPostIndex = currentPage * PAGESIZE;
-  const firstPostIndex = lastPostIndex - PAGESIZE;
+  const lastPostIndex = currentPage * paginationConstants.PAGESIZE;
+  const firstPostIndex = lastPostIndex - paginationConstants.PAGESIZE;
   const currentPosts = countries.slice(firstPostIndex, lastPostIndex);
 
   return currentPosts;

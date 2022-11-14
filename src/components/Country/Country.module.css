@@ -3,7 +3,7 @@
   margin: 10px auto;
   width: 100%;
   min-height: 40px;
-  box-shadow: 0 0 4px 0 #e6b6ec inset;
+  box-shadow: 0 0 4px 0 #29188a inset;
   border-radius: 5px;
   font-size: 14px;
   display: flex;
@@ -26,10 +26,11 @@
 .countryButton {
   background: none;
   border: none;
+  color: rgb(10, 10, 126);
 }
 
 .countryButton:hover {
-  text-shadow: 0 0 3px #e5a0ee;
+  text-shadow: 0 0 3px #798de7;
   font-size: 15px;
 }
 

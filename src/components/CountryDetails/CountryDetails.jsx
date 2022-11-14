@@ -1,22 +1,22 @@
-import React from 'react';
-import { shape, string, arrayOf } from 'prop-types';
+import React, { memo } from 'react';
+import { shape, string } from 'prop-types';
 
 import styles from './CountryDetails.module.css';
 
-function CountryDetails({ country }) {
-  const languages = Object.values(country[0].languages).join(' | ');
-  const currencies = Object.entries(country[0].currencies);
+function CountryDetails({ country, country: { name: { common, official }, flags: { svg } } }) {
+  const languages = Object.values(country.languages).join(' | ');
+  const currencies = Object.entries(country.currencies);
 
   return (
     <div className={styles.content}>
       <div className={styles.field}>
         <h4>Common name</h4>
-        <div>{country[0].name.common}</div>
+        <div>{common}</div>
       </div>
 
       <div className={styles.field}>
         <h4>Official name</h4>
-        <div>{country[0].name.official}</div>
+        <div>{official}</div>
       </div>
 
       <div className={styles.field}>
@@ -34,7 +34,7 @@ function CountryDetails({ country }) {
       <div className={styles.field}>
         <h4>Flag</h4>
         <div>
-          <img className={styles.img} alt="Logo" src={country[0].flags.svg} />
+          <img className={styles.img} alt="Logo" src={svg} />
         </div>
       </div>
     </div>
@@ -42,11 +42,15 @@ function CountryDetails({ country }) {
 }
 
 CountryDetails.propTypes = {
-  country: arrayOf(shape({
-    cca2: string,
-    ccn3: string,
-    capital: arrayOf(string),
-  })).isRequired,
+  country: shape({
+    name: shape({
+      common: string,
+      official: string,
+    }),
+    flags: shape({
+      svg: string,
+    }),
+  }).isRequired,
 };
 
-export default CountryDetails;
+export default memo(CountryDetails);

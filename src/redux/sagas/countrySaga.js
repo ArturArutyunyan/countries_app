@@ -14,16 +14,17 @@ function* getAllCountriesWorker() {
     const { data } = yield axios.get(process.env.REACT_APP_GET_COUNTRY_LIST_URL);
     yield put(getAllCountriesSuccessAction(data));
   } catch (error) {
-    yield put(getAllCountriesFailAction());
+    yield put(getAllCountriesFailAction(error));
   }
 }
 
 function* getCountryByAlphacodeWorker({ payload }) {
   try {
     const { data } = yield axios.get(`${process.env.REACT_APP_GET_COUNTRY_URL}${payload}`);
-    yield put(getCountryByAlphacodeSuccessAction(data));
+    const country = data.length ? data[0] : null;
+    yield put(getCountryByAlphacodeSuccessAction(country));
   } catch (error) {
-    yield put(getCountryByAlphacodeFailAction());
+    yield put(getCountryByAlphacodeFailAction(error));
   }
 }
 

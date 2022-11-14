@@ -21,7 +21,7 @@
 .notice {
   margin: auto;
   font-size: 35px;
-  color: rgb(168, 168, 231);
+  color: rgb(31, 31, 128);
   text-shadow: 0 -1px rgba(231, 6, 6, 0.1);
   -webkit-animation: pulsate 1.2s linear infinite;
   animation: pulsate 1.5s linear infinite;
@@ -33,12 +33,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: #490b52;
-  text-shadow: 0 0 2px #851494;
+  color: #0b1852;
+  text-shadow: 0 0 2px #140979;
 }
 
 .title>* {
-  box-shadow: 0 0 4px 0 #851494 inset;
+  box-shadow: 0 0 4px 0 #1c0c77 inset;
   padding: 10px;
   flex: 1 1 100px;
 }

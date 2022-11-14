@@ -11,7 +11,7 @@ import {
 
 const initialState = {
   countries: [],
-  country: [],
+  country: null,
   isLoading: false,
   error: '',
   popupStatus: false,

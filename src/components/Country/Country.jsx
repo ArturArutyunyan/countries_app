@@ -1,32 +1,30 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Link } from 'react-router-dom';
 import {
   shape, string, func, arrayOf,
 } from 'prop-types';
 
-import eyeButton from '../../assets/images/eye-button.png';
-
 import styles from './Country.module.css';
 
 function Country({
   country: {
-    cca2, ccn3, capital, name: { common },
-  }, changePopupStatus,
+    cca2,
+    ccn3,
+    capital,
+    name: { common },
+  },
+  handleClick,
 }) {
-  const handlePopup = (countryCode) => {
-    changePopupStatus(countryCode);
-  };
-
   return (
     <div className={styles.content}>
       <div>{cca2}</div>
       <div className={styles.countryName}>
-        <button className={styles.countryButton} type="button" onClick={() => handlePopup(ccn3)}>{common}</button>
+        <button className={styles.countryButton} type="button" onClick={() => handleClick(ccn3)}>{common}</button>
       </div>
       <div>{capital}</div>
       <div className={styles.eyeButton}>
         <Link to={`/details/${ccn3}`} className={styles.link}>
-          <img className={styles.img} alt="eye-button" src={eyeButton} />
+          <img className={styles.img} alt="eye-button" src="/assets/images/eye-button.png" />
         </Link>
       </div>
     </div>
@@ -39,7 +37,7 @@ Country.propTypes = {
     ccn3: string,
     capital: arrayOf(string),
   }).isRequired,
-  changePopupStatus: func.isRequired,
+  handleClick: func.isRequired,
 };
 
-export default Country;
+export default memo(Country);

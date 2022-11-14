@@ -9,7 +9,7 @@ import styles from './Header.module.css';
 function Header() {
   const dispatch = useDispatch();
 
-  const logoutForm = () => {
+  const logout = () => {
     dispatch(logoutAction());
   };
 
@@ -20,7 +20,7 @@ function Header() {
       </Link>
 
       <Link to="/login">
-        <button type="button" onClick={logoutForm} name="logout" className={styles.button}>Logout</button>
+        <button type="button" onClick={logout} name="logout" className={styles.button}>Logout</button>
       </Link>
     </div>
   );

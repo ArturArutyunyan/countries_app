@@ -1,4 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {
+  useEffect,
+  useState,
+  useCallback,
+  memo,
+} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Country from '../Country/Country';
@@ -19,10 +24,13 @@ function CountryList() {
     countries, popupStatus, currentPage, isLoading,
   } = useSelector((state) => state.countryReducer);
 
-  const changePopupStatus = (alphaCode) => {
-    dispatch(togglePopupStatusAction(!popupStatus));
-    setCountryCode(alphaCode);
-  };
+  const handleCountryClick = useCallback(
+    (alphaCode) => {
+      dispatch(togglePopupStatusAction(!popupStatus));
+      setCountryCode(alphaCode);
+    },
+    [popupStatus, dispatch],
+  );
 
   useEffect(() => {
     dispatch(getAllCountriesAction());
@@ -48,26 +56,23 @@ function CountryList() {
       </div>
 
       <div>
-        { countries.length
+        {countries.length
           ? selectedPosts.map((country) => (
             <Country
               key={country.ccn3}
               country={country}
-              changePopupStatus={changePopupStatus}
+              handleClick={handleCountryClick}
             />
           ))
-          : <p className={styles.notice}>There is no countries in your list!</p> }
+          : <p className={styles.notice}>There is no countries in your list!</p>}
       </div>
 
-      <div className={styles.paginator}>
-        <Pagination countries={countries} />
-      </div>
+      <Pagination countries={countries} />
 
-      { popupStatus
-      && <Popup country={countries.filter((country) => country.ccn3 === countryCode)[0]} />}
-
+      {popupStatus
+        && <Popup country={countries.filter((country) => country.ccn3 === countryCode)[0]} />}
     </div>
   );
 }
 
-export default CountryList;
+export default memo(CountryList);

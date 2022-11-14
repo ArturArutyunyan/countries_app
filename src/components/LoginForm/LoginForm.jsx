@@ -9,7 +9,7 @@ import styles from './LoginForm.module.css';
 
 function LoginForm() {
   const dispatch = useDispatch();
-  const { error } = useSelector((state) => state.userReducer);
+  const { error } = useSelector((state) => state.authReducer);
 
   const handleSubmit = (event) => {
     dispatch(loginAction(event));

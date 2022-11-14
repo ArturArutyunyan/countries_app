@@ -7,8 +7,8 @@ import LoginPage from './pages/LoginPage/LoginPage';
 import CountryListPage from './pages/CountryListPage/CountryListPage';
 import CountryDetailsPage from './pages/CountryDetailsPage/CountryDetailsPage';
 
-import WithAuthRedirect from './hoc/WithAuthRedirect';
-import WithoutAuthRedirect from './hoc/WithoutAuthRedirect';
+import WithAuthRedirect from './HOC/WithAuthRedirect';
+import WithoutAuthRedirect from './HOC/WithoutAuthRedirect';
 
 import styles from './App.module.css';
 

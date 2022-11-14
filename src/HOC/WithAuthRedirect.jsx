@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 function WithAuthRedirect(Component) {
-  const isAuth = useSelector((state) => state.userReducer.isAuth);
+  const isAuth = useSelector((state) => state.authReducer.isAuth);
   return isAuth ? <Component /> : <Navigate to="/login" />;
 }
 

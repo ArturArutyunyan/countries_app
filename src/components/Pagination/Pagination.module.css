@@ -6,11 +6,11 @@
   margin-right: 12px;
   font-weight: 600;
   background: none;
-  color: rgba(168, 133, 196, 0.7);
+  color: rgba(140, 131, 182, 0.7);
 }
 
 .selected {
-  color: rgba(157, 83, 218, 0.7);
+  color: rgba(14, 21, 117, 0.7);
 }
 
 .pagination {

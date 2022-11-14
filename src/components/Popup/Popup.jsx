@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { shape, string, arrayOf } from 'prop-types';
+import { shape, string } from 'prop-types';
 
 import { togglePopupStatusAction } from '../../redux/actions';
 
 import styles from './Popup.module.css';
 
-function Popup({ country }) {
+function Popup({ country: { name: { common, official } } }) {
   const dispatch = useDispatch();
 
   const closePopup = () => {
@@ -17,12 +17,12 @@ function Popup({ country }) {
     <div className={styles.content}>
       <div>
         <h3>Common Name</h3>
-        <p>{country.name.common}</p>
+        <p>{common}</p>
       </div>
 
       <div>
         <h3>Official name</h3>
-        <p>{country.name.official}</p>
+        <p>{official}</p>
 
       </div>
 
@@ -33,9 +33,10 @@ function Popup({ country }) {
 
 Popup.propTypes = {
   country: shape({
-    cca2: string,
-    ccn3: string,
-    capital: arrayOf(string),
+    name: shape({
+      common: string.isRequired,
+      official: string.isRequired,
+    }),
   }).isRequired,
 };
 

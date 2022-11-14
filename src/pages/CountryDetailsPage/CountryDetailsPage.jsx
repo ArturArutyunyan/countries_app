@@ -31,7 +31,7 @@ function CountryDetailsPage() {
     <div className={styles.content}>
       <Header />
       <h2 className={styles.title}>More about country</h2>
-      { country.length && <CountryDetails country={country} />}
+      {country && <CountryDetails country={country} />}
     </div>
   );
 }

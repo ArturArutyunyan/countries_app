@@ -2,7 +2,7 @@
   margin: 20px auto;
   padding: 30px 30px;
   width: 65%;
-  box-shadow: 0 0 8px 0 rgb(138, 177, 128) inset;
+  box-shadow: 0 0 8px 0 rgb(128, 129, 177) inset;
   max-height: 80vh;
   overflow: hidden;
   display: flex;
@@ -19,7 +19,7 @@
 }
 
 .field>* {
-  box-shadow: 0 0 4px 0 #851494 inset;
+  box-shadow: 0 0 4px 0 #4975d6 inset;
   padding: 13px 7px;
   flex: 1 1 800px;
 }
