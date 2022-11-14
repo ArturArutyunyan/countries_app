@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
-import { GET_ALL_COUNTRIES_REQUESTED, GET_COUNTRY_BY_ALPHACODE_REQ } from '../common';
+import { GET_ALL_COUNTRIES_REQUESTED, GET_COUNTRY_BY_ALPHACODE_REQUESTED } from '../common';
 import {
   getAllCountriesSuccessAction,
   getAllCountriesFailAction,
@@ -30,5 +30,5 @@ function* getCountryByAlphacodeWorker({ payload }) {
 
 export default function* countrySagaWatcher() {
   yield takeLatest(GET_ALL_COUNTRIES_REQUESTED, getAllCountriesWorker);
-  yield takeLatest(GET_COUNTRY_BY_ALPHACODE_REQ, getCountryByAlphacodeWorker);
+  yield takeLatest(GET_COUNTRY_BY_ALPHACODE_REQUESTED, getCountryByAlphacodeWorker);
 }

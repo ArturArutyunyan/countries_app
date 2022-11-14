@@ -2,9 +2,9 @@ import {
   GET_ALL_COUNTRIES_REQUESTED,
   GET_ALL_COUNTRIES_RECEIVED,
   GET_ALL_COUNTRIES_REJECTED,
-  GET_COUNTRY_BY_ALPHACODE_REQ,
-  GET_COUNTRY_BY_ALPHACODE_REC,
-  GET_COUNTRY_BY_ALPHACODE_REJ,
+  GET_COUNTRY_BY_ALPHACODE_REQUESTED,
+  GET_COUNTRY_BY_ALPHACODE_RECEIVED,
+  GET_COUNTRY_BY_ALPHACODE_REJECTED,
   TOGGLE_POPUP_STATUS,
   CHANGE_CURRENT_PAGE,
 } from '../common';
@@ -21,7 +21,7 @@ const initialState = {
 export default function countryReducer(state = initialState, action = {}) {
   switch (action.type) {
     case GET_ALL_COUNTRIES_REQUESTED:
-    case GET_COUNTRY_BY_ALPHACODE_REQ:
+    case GET_COUNTRY_BY_ALPHACODE_REQUESTED:
       return {
         ...state,
         isLoading: true,
@@ -34,7 +34,7 @@ export default function countryReducer(state = initialState, action = {}) {
         countries: action.payload,
       };
 
-    case GET_COUNTRY_BY_ALPHACODE_REC:
+    case GET_COUNTRY_BY_ALPHACODE_RECEIVED:
       return {
         ...state,
         isLoading: false,
@@ -42,7 +42,7 @@ export default function countryReducer(state = initialState, action = {}) {
       };
 
     case GET_ALL_COUNTRIES_REJECTED:
-    case GET_COUNTRY_BY_ALPHACODE_REJ:
+    case GET_COUNTRY_BY_ALPHACODE_REJECTED:
       return {
         ...state,
         isLoading: false,

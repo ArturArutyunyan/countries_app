@@ -21,7 +21,7 @@ function* logoutUserWorker() {
   yield put(logoutSuccessAction());
 }
 
-export default function* userSagaWatcher() {
+export default function* authSagaWatcher() {
   yield takeLatest(AUTH_USER_REQUESTED, loginUserWorker);
   yield takeLatest(LOGOUT_REQUESTED, logoutUserWorker);
 }
