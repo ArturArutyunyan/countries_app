@@ -26,7 +26,7 @@ function CountryList() {
 
   const handleCountryClick = useCallback(
     (alphaCode) => {
-      setSelectedCountry(countries.find(({ ccn3 }) => ccn3 === alphaCode));
+      setSelectedCountry(countries.find(({ cca3 }) => cca3 === alphaCode));
       dispatch(togglePopupStatusAction(!popupStatus));
     },
     [popupStatus, dispatch, countries],
