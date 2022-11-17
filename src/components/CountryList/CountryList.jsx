@@ -18,7 +18,6 @@ import styles from './CountryList.module.css';
 
 function CountryList() {
   const dispatch = useDispatch();
-  const [countryCode, setCountryCode] = useState();
   const [selectedCountry, setSelectedCountry] = useState(null);
 
   const {
@@ -27,11 +26,10 @@ function CountryList() {
 
   const handleCountryClick = useCallback(
     (alphaCode) => {
-      setSelectedCountry(countries.find(({ ccn3 }) => ccn3 === countryCode));
+      setSelectedCountry(countries.find(({ ccn3 }) => ccn3 === alphaCode));
       dispatch(togglePopupStatusAction(!popupStatus));
-      setCountryCode(alphaCode);
     },
-    [popupStatus, dispatch, countries, setSelectedCountry, countryCode],
+    [popupStatus, dispatch, countries],
   );
 
   useEffect(() => {

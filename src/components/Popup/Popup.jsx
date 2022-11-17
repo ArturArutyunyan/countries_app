@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useDispatch } from 'react-redux';
 import { shape, string } from 'prop-types';
 
@@ -23,7 +23,6 @@ function Popup({ country: { name: { common, official } } }) {
       <div>
         <h3>Official name</h3>
         <p>{official}</p>
-
       </div>
 
       <button type="button" onClick={closePopup}>X</button>
@@ -40,4 +39,4 @@ Popup.propTypes = {
   }).isRequired,
 };
 
-export default Popup;
+export default memo(Popup);
